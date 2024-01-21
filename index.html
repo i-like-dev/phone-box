@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自取櫃驗證</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type=text] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        input[type=submit] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="phoneForm">
+            <label for="phone">輸入電話號碼 需要加(+886):</label><br>
+            <input type="text" id="phone" name="phone" placeholder="+886123456789"><br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('phoneForm').onsubmit = function(event) {
+            event.preventDefault();
+            var phone = document.getElementById('phone').value;
+            var allowedNumbers = ["+886920746572", "+886932142243"]; // 在這裡填入允許的電話號碼
+
+            if (allowedNumbers.includes(phone)) {
+                window.location.href = 'https://mp.yeeloc.com/open?data=sKitUytLpZbDwcZt5V3mRwb2RgwAqKsIlB16ZlIeaJIwMxQIiKUZ6WSO3fejQwS1';
+            } else {
+                alert('電話號碼不正確！');
+            }
+        };
+    </script>
+</body>
+</html>
